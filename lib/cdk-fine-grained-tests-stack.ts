@@ -15,11 +15,11 @@ export class CdkFineGrainedTestsStack extends cdk.Stack {
       {
         logGroupName: `/aws/lambda/my-log-group`,
         retention: RetentionDays.ONE_WEEK,
-        removalPolicy: cdk.RemovalPolicy.DESTROY,
       },
     );
 
     const myFunction = new NodejsFunction(this, 'MyFunction', {
+      functionName: 'my-function',
       entry: 'src/handler.ts',
       handler: 'handler',
       timeout: cdk.Duration.seconds(30),
