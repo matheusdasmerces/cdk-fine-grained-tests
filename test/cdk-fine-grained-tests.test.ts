@@ -16,6 +16,7 @@ describe('MyFunction Fine-Grained Tests', () => {
       Runtime: 'nodejs22.x',
       Architectures: ['arm64'],
       Timeout: 30,
+      MemorySize: 128,
     });
   });
 
