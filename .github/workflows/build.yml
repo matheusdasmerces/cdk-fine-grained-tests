@@ -1,0 +1,25 @@
+name: Build and run tests
+on:
+    push:
+        branches:
+            - "main"
+
+jobs:
+    build-and-test:
+      runs-on: ubuntu-latest
+      permissions:
+        id-token: write
+        contents: read
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+
+        - name: Install dependencies
+          id: install-dependencies
+          run: |
+            npm ci
+
+        - name: Run CDK fine-grained tests
+          id: cdk-fine-grained-tests
+          run: |
+            npm run test
